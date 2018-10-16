@@ -25,8 +25,22 @@
         <!-- 热门城市的开始 -->
         <div class="hot-city">
             <div class="title">热门城市</div>
+            <div class="item-list">
+                <div class="item" v-for="item in hotCityData" :key="item.id">{{item.name}}</div>
+            </div>
         </div>
         <!-- 热门城市的结束 -->
+        <!-- 城市列表的开始 -->
+        <div class="city-list" v-for="(item, title) in allCityData" :key="title">
+            <div class="title"> 
+                <span>{{title}}</span>
+                <span v-if="title == 'A'">(按字母排序)</span>    
+            </div>
+            <div class="item-list">
+                <div class="item" v-for="(city, index) in item" :key="index">{{city.name}}</div>
+            </div>
+        </div>
+        <!-- 城市列表的结束 -->
     </div>
 </template>
 
@@ -34,25 +48,45 @@
 export default {
   data() {
     return {
-        currentCity: ''
+      currentCity: "", // 当前城市
+      hotCityData: [], // 热门城市
+      allCityData: [] // 所有城市
     };
   },
   methods: {
-    getCurrentCity() {
-      this.$axios
-        .get("https://elm.cangdu.org/v1/cities?type=guess")
-        .then(res => {
-          console.log(res);
-          this.currentCity = res.data.name
+    getInitCity() {
+      // 获取定位城市
+      this.$axios.get("https://elm.cangdu.org/v1/cities?type=guess").then(res => {
+          this.currentCity = res.data.name;
         });
+      // 获取热门城市
+      this.$axios.get("https://elm.cangdu.org/v1/cities?type=hot").then(res => {
+        this.hotCityData = res.data;
+      });
+      // 获取所有城市
+      setTimeout(() => {
+        this.$axios.get("https://elm.cangdu.org/v1/cities?type=group").then(res => {
+        const keyData = []
+        for(let key in res.data){
+            keyData.push(key)
+        }
+        keyData.sort()
+        const cityData = {}
+        for(let value of keyData){
+            cityData[value] = (res.data)[value]
+        }
+        console.log(cityData)
+        this.allCityData = cityData;
+        });
+      }, 1000)
     }
   },
   mounted() {
-    this.getCurrentCity();
+    this.getInitCity();
   }
 };
 </script>
 
 <style scoped lang='less'>
-@import url('~@css/home/home.less');
+@import url("~@css/home/home.less");
 </style>
