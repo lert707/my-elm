@@ -16,7 +16,7 @@ export default new Vuex.Store({
   mutations: {
     sync(state) {
       console.log("我是同步方法");
-      Vue.prototype.$axios.get("/api/getAll").then(res => {
+      Vue.prototype.$axios.get("/v1/cities?type=guess").then(res => {
         state.totalData = res.data;
       });
     }

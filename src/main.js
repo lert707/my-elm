@@ -9,7 +9,7 @@ import store from './store'
 Vue.config.productionTip = false
 
 Vue.prototype.$axios = axios;
-// axios.defaults.baseURL = "http://127.0.0.1:3000/api/"
+axios.defaults.baseURL = 'https://elm.cangdu.org'
 axios.defaults.withCredentials = true
 
 /* eslint-disable no-new */

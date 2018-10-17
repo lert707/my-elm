@@ -7,6 +7,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     { path: '/', name: 'index', component: () => import ('@/components/index/index') },
-    { path: '/home', name: 'home', component: () => import ('@/components/home/home') }
+    { path: '/home', name: 'home', component: () => import ('@/components/home/home') },
+    { path: '/address', name: 'address', component: () => import ('@/components/address/address') },
   ]
 })
