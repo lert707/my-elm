@@ -72,6 +72,8 @@ export default {
       this.searchResultData = []
       this.historyData.unshift(address)
       addHistoryLocal(address);
+      // 跳转至商品页
+      this.$router.push({path: '/elm', query: {address}})
     },
     // 清空历史记录
     clearHistory() {

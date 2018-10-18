@@ -82,7 +82,7 @@ export default {
     },
     // 选择城市
     chooseCity(cityId) {
-        this.$router.push({path: 'address', query: {cityId}})
+        this.$router.push({path: '/address', query: {cityId}})
     }
   },
   mounted() {
@@ -92,5 +92,5 @@ export default {
 </script>
 
 <style scoped lang='less'>
-@import url("~@css/home/home.less");
+@import url("~@css/city/city.less");
 </style>
