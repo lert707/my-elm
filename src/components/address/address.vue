@@ -18,29 +18,31 @@
       <!-- 搜索历史的开始 -->
       <p class="history-title" v-show="searchResultData.length == 0">搜索历史</p>
       <div class="search-result">
-        <div class="item" @click="chooseAddress(item)" v-for="item in searchResultData" :key="item.id">
+        <div class="item" @click="chooseAddress(item)" v-show="searchResultData.length != 0" v-for="item in searchResultData" :key="item.id">
           <p class="name">{{item.name}}</p>
           <p class="address">{{item.address}}</p>
         </div>
       </div>
       <div class="history">
-        <div class="item" @click="chooseAddress(item)" v-for="item in histroyData" :key="item.id">
+        <div class="item" @click="chooseAddress(item)" v-show="searchResultData.length == 0" v-for="item in historyData" :key="item.id">
           <p class="name">{{item.name}}</p>
           <p class="address">{{item.address}}</p>
         </div>
+        <p class="clear-history" @click="clearHistory" v-show="historyData.length != 0">清空搜索记录</p>
       </div>
       <!-- 搜索历史的结束 -->
     </div>
 </template>
 
 <script>
+import {getHistoryLocal, addHistoryLocal, clearHistoryLocal} from '@/utils/localStorageUtils.js';
 export default {
   data() {
     return {
       city: '', // 选择的城市
       searchValue: '', // 搜索地址
       searchResultData: [], // 搜索结果
-      histroyData: [], // 历史记录
+      historyData: [], // 历史记录
     };
   },
   methods: {
@@ -66,12 +68,24 @@ export default {
     },
     // 选择地址
     chooseAddress(address) {
+      this.searchValue = ''
       this.searchResultData = []
-      this.histroyData.push(address)
+      this.historyData.unshift(address)
+      addHistoryLocal(address);
+    },
+    // 清空历史记录
+    clearHistory() {
+      clearHistoryLocal();
+      this.initHistory();
+    },
+    // 初始化搜索历史
+    initHistory() {
+      this.historyData = getHistoryLocal();
     }
   },
   mounted() {
     this.getCity();
+    this.initHistory();
   }
 };
 </script>
