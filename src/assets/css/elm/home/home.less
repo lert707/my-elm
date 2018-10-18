@@ -1,1 +1,56 @@
 @import url("~@css/base/base.less");
+
+.home {
+  .padding(0, 0, 46);
+  .header {
+    width: 100%;
+    .height(46);
+    background-color: #3190e8;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    .padding(0, 13, 0, 20);
+    position: fixed;
+    .search,
+    .address,
+    .options {
+      height: 100%;
+      .lh(46);
+    }
+    .search {
+      .fontSize(12);
+      align-self: flex-start;
+    }
+    .address {
+      align-self: center;
+      .width(187.5);
+      .fontSize(18);
+      .padding(0, 5, 0, 5);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .options {
+      .fontSize(14);
+      align-self: flex-end;
+      .login-btn {
+        position: relative;
+        margin-right: 3px;
+        &::after {
+          content: "";
+          display: inline-block;
+          width: 1px;
+          height: 17px;
+          background-color: #fff;
+          position: absolute;
+          top: 3px;
+          right: -4px;
+        }
+      }
+    }
+  }
+  .container {
+    .padding(46);
+  }
+}
