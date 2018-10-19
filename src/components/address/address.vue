@@ -73,7 +73,7 @@ export default {
       this.historyData.unshift(address)
       addHistoryLocal(address);
       // 跳转至商品页
-      this.$router.push({path: '/elm/home', query: {address: JSON.stringify(address)}})
+      this.$router.push({path: '/elm/home'})
     },
     // 清空历史记录
     clearHistory() {

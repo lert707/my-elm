@@ -1,1 +1,31 @@
 @import url("~@css/base/base.less");
+
+.order {
+  .padding(0, 0, 46);
+  .header {
+    width: 100%;
+    .height(46);
+    background-color: #3190e8;
+    color: #fff;
+    display: flex;
+    .padding(0, 13, 0, 20);
+    position: fixed;
+    .back,
+    .title {
+      height: 100%;
+      .lh(46);
+    }
+    .back {
+      .fontSize(12);
+    }
+    .title {
+      .fontSize(18);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .container {
+    .padding(46);
+  }
+}
