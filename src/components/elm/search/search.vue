@@ -21,7 +21,7 @@ import { getHistoryLocal } from "@/utils/localStorageUtils.js";
 export default {
   data() {
     return {
-      searchValue: '', // 搜索框
+      searchValue: "", // 搜索框
       resultData: [] // 搜索结果
     };
   },
@@ -32,19 +32,24 @@ export default {
     },
     // 清空搜索栏
     clearSearch() {
-      this.searchValue = ''
+      this.searchValue = "";
     },
     // 搜索结果
     searchResult() {
       const history = getHistoryLocal();
       const addressInfo = history[0];
-      this.$axios.get(`/v4/restaurants?geohash=${addressInfo.geohash}&keyword=${this.searchValue}`).then(res => {
-        this.resultData = res.data
-      })
+      this.$axios
+        .get(
+          `/v4/restaurants?geohash=${addressInfo.geohash}&keyword=${
+            this.searchValue
+          }`
+        )
+        .then(res => {
+          this.resultData = res.data;
+        });
     }
   },
-  mounted() {
-  }
+  mounted() {}
 };
 </script>
 
