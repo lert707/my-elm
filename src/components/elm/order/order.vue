@@ -1,41 +1,41 @@
 <template>
-    <div class="order">
-        <div class="header">
-            <div class="back" @click="toBack">back</div>
-            <div class="title">订单</div>
-        </div>
-        <div class="container">
-            <p>header</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>home</p>
-            <p>bottom</p>
-        </div>
+  <div class="order">
+    <div class="header">
+      <div class="back" @click="toBack">back</div>
+      <div class="title">订单</div>
     </div>
+    <div class="container">
+      <p>header</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>home</p>
+      <p>bottom</p>
+    </div>
+  </div>
 </template>
 
 <script>

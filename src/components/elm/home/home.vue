@@ -9,6 +9,9 @@
       </div>
     </div>
     <div class="container">
+      <div class="category-list">
+        
+      </div>
         <p>header</p>
         <p>home</p>
         <p>home</p>
@@ -47,18 +50,12 @@ import { getHistoryLocal } from "@/utils/localStorageUtils.js";
 export default {
   data() {
     return {
-      address: ""
+      address: "", // 标题
+      categoryData: [], // 分类数据
+
     };
   },
   methods: {
-    //  获取地点
-    getAddress() {
-      const history = getHistoryLocal();
-      const addressInfo = history[0];
-      this.$axios.get(`/v2/pois/${addressInfo.geohash}`).then(res => {
-        this.address = res.data.name;
-      });
-    },
     // 去定位城市页
     toChooseCity() {
       this.$router.push({ path: "/city" });
@@ -66,10 +63,23 @@ export default {
     // 去搜索页
     toSearch() {
       this.$router.push({ path: "/elm/search" });
+    },
+    // 初始化数据
+    initData() {
+      // 获取地址
+      const history = getHistoryLocal();
+      const addressInfo = history[0];
+      this.$axios.get(`/v2/pois/${addressInfo.geohash}`).then(res => {
+        this.address = res.data.name;
+      });
+      // 获取分类
+      this.$axios.get('/v2/index_entry').then(res => {
+        this.categoryData = res.data;
+      });
     }
   },
   mounted() {
-    this.getAddress();
+    this.initData();
   }
 };
 </script>

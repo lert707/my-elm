@@ -27,5 +27,47 @@
   }
   .container {
     .padding(46);
+    .search-box {
+      .height(58);
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      .search-input {
+        .width(270);
+        .height(36);
+        color: #757575;
+        background-color: #f2f2f2;
+        border: 1px solid #e4e4e4;
+        border-radius: 5px;
+        .padding(0,0,0,5);
+      }
+      .search-btn {
+        .width(77);
+        .height(36);
+        .fontSize(14);
+        color: #fff;
+        background-color: #3190e8;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .margin(0,0,0,4);
+      }
+      .search-clear {
+        .fontSize(16);
+        color: #000;
+        position: absolute;
+        left: 70%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    .tips {
+      .fontSize(20);
+      color: #666;
+      text-align: center;
+    }
   }
 }
