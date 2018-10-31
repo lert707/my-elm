@@ -10,7 +10,18 @@
     </div>
     <div class="container">
       <div class="category-list">
-        
+        <div class="left">
+          <div class="item" v-if="index < 8" v-for="(item, index) in categoryData" :key="item.id">
+            <img class="item-image" :src="'https://fuss10.elemecdn.com' + item.image_url" alt="">
+            <span>{{item.title}}</span>
+          </div>
+        </div>
+        <div class="right">
+          <div class="item" v-if="index > 8" v-for="(item, index) in categoryData" :key="item.id">
+            <img class="item-image" :src="'https://fuss10.elemecdn.com' + item.image_url" alt="">
+            <span>{{item.title}}</span>
+          </div>         
+        </div>
       </div>
         <p>header</p>
         <p>home</p>
@@ -51,8 +62,7 @@ export default {
   data() {
     return {
       address: "", // 标题
-      categoryData: [], // 分类数据
-
+      categoryData: [] // 分类数据
     };
   },
   methods: {
@@ -73,7 +83,7 @@ export default {
         this.address = res.data.name;
       });
       // 获取分类
-      this.$axios.get('/v2/index_entry').then(res => {
+      this.$axios.get("/v2/index_entry").then(res => {
         this.categoryData = res.data;
       });
     }

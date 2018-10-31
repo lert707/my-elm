@@ -53,5 +53,33 @@
   }
   .container {
     .padding(46);
+    overflow: hidden;
+    .category-list {
+      width: 200%;
+      .height(202);
+      border-bottom: 1px solid #e4e4e4;
+      background-color: #fff;
+      display: flex;
+      .left,
+      .right {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        .item {
+          width: 25%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          .fontSize(14);
+          .item-image {
+            .width(42);
+            .height(42);
+          }
+        }
+      }
+
+    }
   }
 }
