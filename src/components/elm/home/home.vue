@@ -62,14 +62,14 @@
 </template>
 
 <script>
-import { Swipe, SwipeItem } from 'mint-ui';
+import { Swipe, SwipeItem } from "mint-ui";
 import { getHistoryLocal } from "@/utils/localStorageUtils.js";
 export default {
   data() {
     return {
       address: "", // 标题
       categoryData: [], // 分类数据
-      storeData: [], // 商铺数据
+      storeData: [] // 商铺数据
     };
   },
   components: {
@@ -98,15 +98,21 @@ export default {
         this.categoryData = res.data;
       });
       // 获取商铺信息
-      this.$axios.get(`/shopping/restaurants?latitude=${addressInfo.latitude}&longitude=${addressInfo.longitude}`).then(res => {
-        this.storeData = res.data
-        this.storeData.forEach(e => {
-          if (!e.delivery_mode) {
-            e.delivery_mode = {}
-            e.delivery_mode.text = ""
-          }
-        })
-      })
+      this.$axios
+        .get(
+          `/shopping/restaurants?latitude=${addressInfo.latitude}&longitude=${
+            addressInfo.longitude
+          }`
+        )
+        .then(res => {
+          this.storeData = res.data;
+          this.storeData.forEach(e => {
+            if (!e.delivery_mode) {
+              e.delivery_mode = {};
+              e.delivery_mode.text = "";
+            }
+          });
+        });
     }
   },
   mounted() {
