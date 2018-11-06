@@ -39,7 +39,7 @@
       </swiper>
       <div class="stores">
         <p class="title">附近商家</p>
-        <div class="store" v-for="item in storeData" :key="item.id">
+        <div class="store" @click="toDetail(item.id)" v-for="item in storeData" :key="item.id">
           <img class="store-img" :src="'http://elm.cangdu.org/img/'+ item.image_path" alt="">
           <div class="info">
             <div class="one">
@@ -77,6 +77,15 @@ export default {
     swiperItem: SwipeItem
   },
   methods: {
+    // 去商铺详情页
+    toDetail(id) {
+      this.$axios.get(`https://elm.cangdu.org/shopping/restaurant/${id}`).then(res => {
+        console.log(res)
+      })
+      this.$axios.get(`https://elm.cangdu.org/shopping/getcategory/${id}`).then(res => {
+        console.log(res)
+      })
+    },
     // 去定位城市页
     toChooseCity() {
       this.$router.push({ path: "/city" });

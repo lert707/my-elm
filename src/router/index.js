@@ -6,7 +6,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    { path: '/', name: 'index', component: () => import ('@/components/index/index') },
+    { path: '/', name: 'index', component: () => import ('@/components/index/index'), redirect: "/city" },
     { path: '/city', name: 'city', component: () => import ('@/components/city/city') },
     { path: '/address', name: 'address', component: () => import ('@/components/address/address') },
     { path: '/elm', name: 'elm', redirect: '/elm/home', component: () => import ('@/components/elm/elm') , children: [
