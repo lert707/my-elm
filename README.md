@@ -1,6 +1,6 @@
 # my-elm
 
-> vue的饿了么移动端demo
+> vue.js  饿了么移动端demo
 
 # 项目运行
 

@@ -11,6 +11,7 @@ export default new Router({
     { path: '/address', name: 'address', component: () => import ('@/components/address/address') },
     { path: '/elm', name: 'elm', redirect: '/elm/home', component: () => import ('@/components/elm/elm') , children: [
       { path: 'home', name: 'home', component: () => import ('@/components/elm/home/home') },
+      { path: 'restaurant-detail', name: 'restaurant-detail', component: () => import ('@/components/elm/home/restaurant-detail/restaurant-detail') },
       { path: 'search', name: 'search', component: () => import ('@/components/elm/search/search') },
       { path: 'order', name: 'order', component: () => import ('@/components/elm/order/order') },
       { path: 'my', name: 'my', component: () => import ('@/components/elm/my/my') }

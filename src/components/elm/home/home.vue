@@ -79,12 +79,7 @@ export default {
   methods: {
     // 去商铺详情页
     toDetail(id) {
-      this.$axios.get(`https://elm.cangdu.org/shopping/restaurant/${id}`).then(res => {
-        console.log(res)
-      })
-      this.$axios.get(`https://elm.cangdu.org/shopping/getcategory/${id}`).then(res => {
-        console.log(res)
-      })
+      this.$router.push({ path: "/elm/restaurant-detail", query: {id} });
     },
     // 去定位城市页
     toChooseCity() {
