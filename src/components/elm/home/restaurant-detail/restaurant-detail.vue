@@ -1,6 +1,16 @@
 <template>
     <div class="restaurant-detail">
-
+      <div class="header">
+        <img class="bg-img" src="//elm.cangdu.org/img/164ad0b6a3917599.jpg" alt="">
+        <div class="info">
+          <img class="logo" src="//elm.cangdu.org/img/164ad0b6a3917599.jpg" alt="">
+          <div class="desc">
+            <p class="name">效果演示</p>
+            <p class="dispatch">商家配送/</p>
+            <p class="notice">公告：</p>
+          </div>
+        </div>
+      </div>
     </div>
 </template>
 
@@ -29,7 +39,7 @@ export default {
     }
   },
   mounted() {
-    this.getData();
+    // this.getData();
   }
 };
 </script>
